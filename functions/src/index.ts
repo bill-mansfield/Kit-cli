@@ -3,7 +3,12 @@ import * as functions from 'firebase-functions';
  // Start writing Firebase Functions
  // https://firebase.google.com/docs/functions/typescript
 
- export const helloWorld = functions.https.onRequest((request, response) => {
-     console.log('logmeinboyz')
-    response.send("Hello boys");
- });
+ exports.randomNumber = functions.https.onRequest((request, response) => {
+    const number = Math.round(Math.random() * 100)
+
+    response.send(number.toString())
+ })
+
+ exports.toTheKit = functions.https.onRequest((request, response) => {
+    response.redirect('https://keepittight.me')
+ })
